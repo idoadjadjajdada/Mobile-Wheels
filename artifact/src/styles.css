@@ -1,0 +1,10 @@
+@import "../../src/app/globals.css";
+@source "../../src";
+@source "./";
+
+/* next/font isn't available here; the same families load from Google Fonts in index.html. */
+:root {
+  --font-fraunces: "Fraunces", ui-serif, Georgia, serif;
+  --font-geist: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-geist-mono: "Geist Mono", ui-monospace, monospace;
+}

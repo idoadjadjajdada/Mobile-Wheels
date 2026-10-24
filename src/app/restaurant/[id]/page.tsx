@@ -58,6 +58,12 @@ export default function RestaurantPage() {
             {r.isDemo && <span className="rounded-full bg-sky/20 px-2 py-0.5 text-[10px] font-bold uppercase text-sky">Demo</span>}
           </div>
           <h1 className="mt-2 font-display text-4xl font-semibold leading-tight tracking-tight">{r.name}</h1>
+          {r.locationless ? (
+            <p className="mt-2 flex items-start gap-1.5 text-sm text-dust">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-ember" />
+              <span>Chain-wide menu. Hours and prices vary by location; pick your nearest one on their site.</span>
+            </p>
+          ) : (
           <p className="mt-2 flex items-start gap-1.5 text-sm text-dust">
             <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-ember" />
             <span>
@@ -67,6 +73,7 @@ export default function RestaurantPage() {
               <a href={d.mapsUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Map</a>
             </span>
           </p>
+          )}
           {r.phone && <a href={`tel:${r.phone}`} className="mt-1 flex items-center gap-1.5 text-sm text-dust"><Phone className="h-4 w-4" /> {r.phone}</a>}
           {d.host && (
             <p className="mt-3 rounded-2xl bg-sky/10 p-3 text-sm text-sky">

@@ -11,7 +11,7 @@ import { Button, EmptyState } from "@/components/states";
 import { MARKET_BY_ID } from "@/lib/catalog/markets";
 import { api } from "@/lib/client/api";
 import { getState, preferenceSnapshot, useHydrated, useStore } from "@/lib/client/store";
-import { formatDistance } from "@/lib/geo";
+import { offeringDistance } from "@/lib/geo";
 import { estimateOrder, money } from "@/lib/pricing";
 import type { Offering } from "@/lib/types";
 
@@ -59,7 +59,7 @@ function Compare() {
     { label: mode === "pickup" ? "Est. total (tax)" : "Est. delivered", render: (_o, i) => (est[i].hasUnknownPrices ? "—" : `~${money(est[i].total)}`), val: (_o, i) => (est[i].hasUnknownPrices ? undefined : est[i].total), better: (a, b) => a - b },
     { label: "Value", render: (o) => o.value.label, val: (o) => o.value.score, better: (a, b) => b - a },
     { label: "Portion", render: (o) => <span className="capitalize">{o.item.portion.size}</span> },
-    { label: "Distance", render: (o) => formatDistance(o.distanceKm), val: (o) => o.distanceKm, better: (a, b) => a - b },
+    { label: "Distance", render: (o) => offeringDistance(o), val: (o) => (o.restaurant.locationless ? undefined : o.distanceKm), better: (a, b) => a - b },
     { label: "Hours", render: (o) => <HoursPill hours={o.hours} compact /> },
     { label: "Delivery", render: (o) => (o.listings.filter((l) => l.url && l.platform !== "direct").length ? `${o.listings.filter((l) => l.url && l.platform !== "direct").length} apps · confirm on site` : "No app links") },
     { label: "Rating", render: (o) => (o.restaurant.rating ? `${o.restaurant.rating.value.toFixed(1)} (${o.restaurant.rating.count ?? "?"})` : "No rating source"), val: (o) => o.restaurant.rating?.value, better: (a, b) => b - a },

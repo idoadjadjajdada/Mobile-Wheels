@@ -215,12 +215,7 @@ export default function Discover() {
         ) : error && error.sig === signature && !queue.length ? (
           <ErrorState message={error.message} onRetry={retry} offline={!online} />
         ) : queue.length ? (
-          <>
-            <SwipeDeck ref={deckRef} offerings={queue} onSwipe={onSwipe} onOpen={open} onUndo={onUndo} canUndo={canUndo} />
-            <p className="mt-4 text-center text-[11px] text-mute">
-              Prices marked <span className="text-honey">Est.</span> are typical ranges, not quotes. Delivery availability is confirmed on the provider&apos;s site.
-            </p>
-          </>
+          <SwipeDeck ref={deckRef} offerings={queue} onSwipe={onSwipe} onOpen={open} onUndo={onUndo} canUndo={canUndo} />
         ) : (
           <DeckEmpty meta={meta} onReload={retry} />
         )}

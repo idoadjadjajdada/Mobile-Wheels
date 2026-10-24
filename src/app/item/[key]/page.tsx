@@ -15,7 +15,7 @@ import { useToast } from "@/components/toast";
 import { useOffering } from "@/components/use-offering";
 import { ateHere, block, dislike, rejectMeal, swipe, useStore } from "@/lib/client/store";
 import { MARKET_BY_ID } from "@/lib/catalog/markets";
-import { formatDistance } from "@/lib/geo";
+import { offeringDistance } from "@/lib/geo";
 import { estimateOrder, money, viewPrice } from "@/lib/pricing";
 
 export default function ItemPage() {
@@ -81,7 +81,7 @@ export default function ItemPage() {
         </h1>
         <Link href={`/restaurant/${encodeURIComponent(o.restaurant.id)}`} className="mt-2 inline-flex flex-wrap items-center gap-2 text-dust hover:text-bone">
           <span className="font-medium text-bone underline decoration-white/20 underline-offset-4">{o.restaurant.name}</span>
-          <span>· {formatDistance(o.distanceKm)}</span>
+          <span>· {offeringDistance(o)}</span>
           <KindBadge restaurant={o.restaurant} />
         </Link>
         {o.restaurant.address.line1 && <p className="mt-1 text-sm text-mute">{[o.restaurant.address.line1, o.restaurant.address.city].filter(Boolean).join(", ")}</p>}

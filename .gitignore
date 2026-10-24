@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local dev store
 /.data/
+
+# artifact build output
+/artifact/dist/

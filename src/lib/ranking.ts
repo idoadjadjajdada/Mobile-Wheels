@@ -289,7 +289,7 @@ export function scoreOffering(o: Offering, state: PreferenceState, model: TasteM
 
   // --- Distance ---
   const d = o.distanceKm;
-  push("distance", 1 - 2 * Math.min(d / 8, 1), w.distance, d < 1.5 ? "Really close by" : undefined);
+  push("distance", 1 - 2 * Math.min(d / 8, 1), w.distance, d < 1.5 && !o.restaurant.locationless ? "Really close by" : undefined);
 
   // --- Value ---
   push("value", (o.value.score - 0.6) * 2.5, w.value, o.value.score >= 0.8 ? o.value.label : undefined);

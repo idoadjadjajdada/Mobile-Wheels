@@ -14,6 +14,11 @@ export function kmToMiles(km: number) {
   return km * 0.621371;
 }
 
+/** Distance label for an offering; chain-wide entries have no branch to measure to. */
+export function offeringDistance(o: { distanceKm: number; restaurant: { locationless?: boolean } }) {
+  return o.restaurant.locationless ? "Any location" : formatDistance(o.distanceKm);
+}
+
 export function formatDistance(km: number) {
   const mi = kmToMiles(km);
   return mi < 0.1 ? "< 0.1 mi" : `${mi < 10 ? mi.toFixed(1) : Math.round(mi)} mi`;

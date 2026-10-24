@@ -1,5 +1,5 @@
 import { BadgeCheck, CircleHelp, Clock, Ghost, Store, Truck } from "lucide-react";
-import { formatDistance } from "@/lib/geo";
+import { offeringDistance } from "@/lib/geo";
 import { viewPrice } from "@/lib/pricing";
 import type { HoursStatus, ListingView, Offering, Price, Restaurant, Verification } from "@/lib/types";
 
@@ -101,7 +101,7 @@ export function ModeIcons({ o }: { o: Offering }) {
         </span>
       )}
       <span className="inline-flex items-center gap-1">
-        <Clock className="h-3.5 w-3.5" /> {formatDistance(o.distanceKm)}
+        <Clock className="h-3.5 w-3.5" /> {offeringDistance(o)}
       </span>
     </span>
   );

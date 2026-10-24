@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { api } from "@/lib/client/api";
+import { api, ApiError } from "@/lib/client/api";
 import { Sheet } from "./sheet";
 import { Button } from "./states";
 import { useToast } from "./toast";
@@ -27,8 +27,8 @@ export function ReportSheet({ open, onClose, restaurantId, menuItemId }: { open:
       show({ message: "Thanks — an admin will review it." });
       onClose();
       setMessage("");
-    } catch {
-      show({ message: "Couldn't send the report. Try again later." });
+    } catch (e) {
+      show({ message: "Couldn't send the report", detail: e instanceof ApiError ? e.message : "Try again later." });
     } finally {
       setBusy(false);
     }

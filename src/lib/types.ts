@@ -144,6 +144,8 @@ export interface Restaurant {
   provenance: Provenance;
   status: "active" | "closed_permanently" | "hidden";
   isDemo: boolean;
+  /** Chain-wide entry with no specific branch (preview builds); never shows a distance or address. */
+  locationless?: boolean;
   updatedAt: string;
 }
 
