@@ -1,0 +1,13 @@
+{
+  "_comment": "Synthetic test fixture in Overpass JSON format. Names/IDs/coordinates are made up for tests only.",
+  "elements": [
+    { "type": "node", "id": 1001, "lat": 32.2301, "lon": -110.9501, "tags": { "amenity": "fast_food", "name": "McDonald's", "brand": "McDonald's", "brand:wikidata": "Q38076", "opening_hours": "Mo-Su 05:00-24:00", "addr:housenumber": "100", "addr:street": "Test St", "addr:city": "Tucson", "delivery": "yes", "takeaway": "yes" } },
+    { "type": "way", "id": 2001, "center": { "lat": 32.23012, "lon": -110.95008 }, "tags": { "amenity": "fast_food", "name": "McDonald's", "brand": "McDonald's", "brand:wikidata": "Q38076" } },
+    { "type": "node", "id": 1002, "lat": 32.2402, "lon": -110.9602, "tags": { "amenity": "fast_food", "name": "Taco Bell Cantina", "brand": "Taco Bell", "opening_hours": "Mo-Su 10:00-02:00", "takeaway": "yes" } },
+    { "type": "node", "id": 1003, "lat": 32.2503, "lon": -110.9703, "tags": { "amenity": "fast_food", "name": "eegee's", "opening_hours": "Mo-Su 10:00-21:00", "brand:wikidata": "Q99999999" } },
+    { "type": "node", "id": 1004, "lat": 32.2504, "lon": -110.9704, "tags": { "amenity": "restaurant", "name": "Test Independent Cafe", "cuisine": "mexican;breakfast", "opening_hours": "Tu-Su 07:00-15:00", "delivery": "no", "phone": "+1 520 555 0100" } },
+    { "type": "node", "id": 1005, "lat": 32.23011, "lon": -110.95011, "tags": { "amenity": "fast_food", "name": "MrBeast Burger" } },
+    { "type": "node", "id": 1006, "lat": 32.26, "lon": -110.98, "tags": { "amenity": "restaurant", "name": "Closed Place", "disused:amenity": "restaurant" } },
+    { "type": "node", "id": 1007, "lat": 32.27, "lon": -110.99, "tags": { "amenity": "restaurant" } }
+  ]
+}
